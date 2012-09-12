@@ -23,12 +23,15 @@ from scrapy import log
 
 from rss_scrape.items import RssFeedItem, RssEntryItem
 import chardet
+import datetime
+from dateutil.tz import tzutc
 
 class RSSSpider(BaseSpider):
     name = "rss_scrape"
     _allowed_domain = {"soton.ac.uk", "southampton.ac.uk"}
     start_urls = [
-        "https://www.soton.ac.uk/sitemap.html"
+        "https://www.soton.ac.uk/sitemap.html",
+        "http://www.soton.ac.uk/biosci/news/feeds/biosci_news.page"
     ]
     _gathered_fields = ('published_parsed' ,'title' ,  'link' ,'summary');
     
@@ -65,7 +68,7 @@ class RSSSpider(BaseSpider):
                         
                         published = entry.get("published_parsed", None)
                         if published:
-                            entry["published"] = published
+                            entry["published"] = datetime.datetime(*(published[0:6]), tzinfo=tzutc()).isoformat()
                         
                         for key in {'title', 'link', 'summery', 'published'} & entry.viewkeys():
                             entry_item[key] = entry[key]

@@ -20,5 +20,5 @@ DEFAULT_REQUEST_HEADERS = {
     'Accept-Language' : 'en',
 }
 
-FEED_FORMAT = 'jsonlines'
-FEED_URI = './items.jl'
+FEED_FORMAT = 'xml'
+FEED_URI = './items.xml'
