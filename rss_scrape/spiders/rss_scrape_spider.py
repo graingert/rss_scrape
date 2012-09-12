@@ -23,7 +23,6 @@ from scrapy import log
 
 from rss_scrape.items import RssFeedItem, RssEntryItem
 import chardet
-import dateutil.parser
 
 class RSSSpider(BaseSpider):
     name = "rss_scrape"
