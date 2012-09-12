@@ -20,5 +20,5 @@ DEFAULT_REQUEST_HEADERS = {
     'Accept-Language' : 'en',
 }
 
-FEED_FORMAT = 'xml'
-FEED_URI = './items.xml'
+FEED_FORMAT = 'csv'
+FEED_URI = './items.csv'
