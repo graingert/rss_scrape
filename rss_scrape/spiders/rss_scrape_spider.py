@@ -30,8 +30,9 @@ class RSSSpider(BaseSpider):
     name = "rss_scrape"
     _allowed_domain = {"soton.ac.uk", "southampton.ac.uk"}
     start_urls = [
-        "https://www.soton.ac.uk/sitemap.html",
-        "http://www.soton.ac.uk/biosci/news/feeds/biosci_news.page"
+        "http://blog.soton.ac.uk/",
+        "http://blog.soton.ac.uk/data/",
+        "http://www.soton.ac.uk/sitemap.html",
     ]
     _gathered_fields = ('published_parsed' ,'title' ,  'link' ,'summary');
     
